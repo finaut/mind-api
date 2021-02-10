@@ -2,6 +2,9 @@ require 'api_constraints'
 
 Rails.application.routes.draw do
 
+  resources :categories
+  resources :authors
+  resources :books
   use_doorkeeper do
     # No need to register client application
     skip_controllers :applications, :authorized_applications
