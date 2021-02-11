@@ -2,6 +2,8 @@ require 'api_constraints'
 
 Rails.application.routes.draw do
 
+  resources :line_items
+  resources :carts
   resources :categories
   resources :authors
   resources :books

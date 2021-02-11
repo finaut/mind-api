@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_10_205959) do
+ActiveRecord::Schema.define(version: 2021_02_11_113325) do
 
   create_table "authors", force: :cascade do |t|
     t.string "full_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "book_categories", force: :cascade do |t|
+    t.integer "book_id"
+    t.integer "category_id"
+    t.index ["book_id"], name: "index_book_categories_on_book_id"
+    t.index ["category_id"], name: "index_book_categories_on_category_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -29,17 +36,25 @@ ActiveRecord::Schema.define(version: 2021_02_10_205959) do
     t.index ["author_id"], name: "index_books_on_author_id"
   end
 
-  create_table "books_categories", force: :cascade do |t|
-    t.integer "book_id"
-    t.integer "category_id"
-    t.index ["book_id"], name: "index_books_categories_on_book_id"
-    t.index ["category_id"], name: "index_books_categories_on_category_id"
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer "book_id"
+    t.integer "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "quantity", default: 1
+    t.index ["book_id"], name: "index_line_items_on_book_id"
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|

@@ -1,10 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+########
+# USER
+########
 user1 = User.create(
   email: 'example@gmail.com',
   password: 'example',
@@ -20,6 +16,25 @@ user3 = User.create(
   password: '222222',
   password_confirmation: '222222'
 )
+
+#########
+# AUTHOR
+#########
+john_wick = Author.create(
+  full_name: 'John Wick'
+)
+
+saburo_simon = Author.create(
+  full_name: 'Saburo Simon'
+)
+
+kate_masao = Author.create(
+  full_name: 'Kate Masao'
+)
+
+########
+# BOOKS
+########
 ruby_book = Book.create(
   title: 'Ruby Book',
   description:  'Повседневная практика показывает, что постоянное
@@ -33,7 +48,9 @@ ruby_book = Book.create(
                  что консультация с широким активом влечет за собой процесс внедрения
                  и модернизации модели развития.',
   price: 43.45,
-  pages: 453)
+  pages: 453,
+  author: saburo_simon
+)
 
 postgres_book = Book.create(
   title: 'Postgres Book',
@@ -42,7 +59,8 @@ postgres_book = Book.create(
                 настолько очевидна, что начало повседневной работы по формированию
                 позиции требуют определения и уточнения форм развития.',
   price: 32.95,
-  pages: 282
+  pages: 282,
+  author: saburo_simon
 )
 
 sqlite_book = Book.create(
@@ -56,7 +74,8 @@ sqlite_book = Book.create(
                 С другой стороны сложившаяся структура организации требуют от нас
                 анализа позиций, занимаемых участниками в отношении поставленных задач.',
   price: 25.85,
-  pages: 225
+  pages: 225,
+  author: john_wick
 )
 
 js_book = Book.create(
@@ -67,7 +86,8 @@ js_book = Book.create(
                 важную роль в формировании системы обучения кадров, соответствует
                  насущным потребностям.',
   price: 76.45,
-  pages: 763
+  pages: 763,
+  author: john_wick
 )
 
 php_book = Book.create(
@@ -78,5 +98,35 @@ php_book = Book.create(
                 повседневной работы по формированию позиции позволяет оценить значение
                 существенных финансовых и административных условий.',
   price: 45.35,
-  pages: 493
+  pages: 493,
+  author: kate_masao
+)
+
+rake_book = Book.create(
+  title: 'Rake Book',
+  description: 'Таким образом рамки и место обучения кадров требуют определения
+               и уточнения систем массового участия. Повседневная практика показывает,
+               что постоянный количественный рост и сфера нашей активности играет
+               важную роль в формировании соответствующий условий активизации.
+               С другой стороны рамки и место обучения кадров способствует подготовки
+               и реализации новых предложений.',
+  price: 12.20,
+  pages: 183,
+  author:  kate_masao
+)
+
+###########
+# CATEGORY
+###########
+horror = Category.create(
+  name: 'Horror',
+  books: [js_book, php_book]
+)
+adventure = Category.create(
+  name: 'Adventure',
+  books: [sqlite_book, ruby_book]
+)
+thriller = Category.create(
+  name: 'Thriller',
+  books: [postgres_book, rake_book]
 )
