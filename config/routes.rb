@@ -1,7 +1,7 @@
 require 'api_constraints'
 
 Rails.application.routes.draw do
-
+  resources :charges
   resources :line_items
   resources :carts
   resources :categories

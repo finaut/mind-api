@@ -5,8 +5,12 @@ gem 'sqlite3'
 gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'devise'
-gem 'doorkeeper'
+# OAuth2
+gem 'devise',  '4.7.3'
+gem 'doorkeeper', '5.4.0'
+
+# Payment
+gem 'stripe', '5.29.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
