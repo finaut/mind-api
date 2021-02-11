@@ -142,7 +142,7 @@ DEPENDENCIES
   devise (= 4.7.3)
   doorkeeper (= 5.4.0)
   puma (~> 3.11)
-  rails (~> 5.2.4, >= 5.2.4.4)
+  rails (= 5.2.4.4)
   sqlite3
   stripe (= 5.29.1)
   tzinfo-data
