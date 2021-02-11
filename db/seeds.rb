@@ -5,10 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create(email: 'example@gmail.com',
-                   password: 'example',
-                   password_confirmation: 'example')
-
+user1 = User.create(
+  email: 'example@gmail.com',
+  password: 'example',
+  password_confirmation: 'example'
+)
+user2 = User.create(
+  email: 'finaut477@gmail.com',
+  password: '111111',
+  password_confirmation: '111111'
+)
+user3 = User.create(
+  email: 'samurai7521@gmail.com',
+  password: '222222',
+  password_confirmation: '222222'
+)
 ruby_book = Book.create(
   title: 'Ruby Book',
   description:  'Повседневная практика показывает, что постоянное
